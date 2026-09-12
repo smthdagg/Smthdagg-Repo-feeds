@@ -1,5 +1,15 @@
 # Smthdagg Repo feeds — private project distribution
 
+## 中文说明
+
+这是多个私有项目的分发索引。只有 Wi-Fi Calling + WLOC 整合项目当前发布
+OpenWrt 软件包；独立 Wi-Fi Calling 项目仍是预留目录，其他项目都是源码项目。
+源码项目应从各自私有 GitHub 仓库安装，不能使用 `opkg`。
+
+下面是 English documentation and the complete distribution status.
+
+## English
+
 This repository contains separate distribution areas for several private
 projects. The WLOC integrated project currently publishes OpenWrt packages.
 The standalone Wi-Fi Calling directory is reserved for a future package
