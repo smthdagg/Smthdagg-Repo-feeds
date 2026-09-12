@@ -1,9 +1,10 @@
 # Smthdagg Repo feeds — private project distribution
 
 This repository contains separate distribution areas for several private
-projects. Only the Wi-Fi Calling and WLOC projects are OpenWrt packages. The
-other directories are source-project placeholders and must not be installed
-with `opkg` or treated as OpenWrt feeds.
+projects. The WLOC integrated project currently publishes OpenWrt packages.
+The standalone Wi-Fi Calling directory is reserved for a future package
+release; the other directories are source-project placeholders and must not be
+installed with `opkg` or treated as OpenWrt feeds.
 
 The directory name matches the corresponding project repository name. An
 OpenWrt package directory has its own `Packages` index and signature; a
@@ -14,7 +15,7 @@ source-only directory contains documentation only.
 | Directory | Project | Status |
 |---|---|---|
 | `wificalling-location-gateway/` | smthdagg/wificalling-location-gateway | publishing (Standard + Lite, aarch64 + x86_64) |
-| `luci-app-wificalling-gateway/` | smthdagg/luci-app-wificalling-gateway | reserved |
+| `luci-app-wificalling-gateway/` | smthdagg/luci-app-wificalling-gateway | reserved; no package published yet |
 | `wificalling-location-gateway-beta/` | *private repository* | withheld — will be published when the project goes public again |
 | `ALL-VideoDownload-Plus/` | smthdagg/ALL-VideoDownload-Plus | source-only; install from the repository README |
 | `SalesCRM/` | smthdagg/SalesCRM | source-only; install from the repository README |
@@ -28,8 +29,9 @@ source-only directory contains documentation only.
 
 ## OpenWrt package update procedure
 
-This procedure applies only to the Wi-Fi Calling and WLOC package directories.
-Do not copy source code or non-OpenWrt projects into this feed.
+This procedure applies only to a directory with published OpenWrt packages,
+currently `wificalling-location-gateway/`. Do not copy source code or
+non-OpenWrt projects into this feed.
 
 Work in a checkout of this repository's `gh-pages` branch. The index generator
 is `scripts/gen-feed-index.sh` on this repository's `main` branch.
@@ -51,7 +53,8 @@ is `scripts/gen-feed-index.sh` on this repository's `main` branch.
 
 ## Router configuration
 
-Use an `opkg` source line only for a project that publishes OpenWrt packages:
+Use an `opkg` source line only for a project that publishes OpenWrt packages.
+Currently that is the integrated WLOC project:
 
 ```sh
 src/gz wloc https://smthdagg.github.io/Smthdagg-Repo-feeds/wificalling-location-gateway
