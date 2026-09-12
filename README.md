@@ -1,14 +1,13 @@
-# Smthdagg Repo feeds — OpenWrt package feed
+# Smthdagg Repo feeds — private project distribution
 
-Multi-project OpenWrt/opkg package feed, served at
-`https://smthdagg.github.io/Smthdagg-Repo-feeds/`. Each project has its own
-directory, its own `Packages` index, and its own signature — projects never
-share an index.
+This repository contains separate distribution areas for several private
+projects. Only the Wi-Fi Calling and WLOC projects are OpenWrt packages. The
+other directories are source-project placeholders and must not be installed
+with `opkg` or treated as OpenWrt feeds.
 
-**Rule: the directory name must exactly match the project's repository name.**
-The verification script refuses an update whose directory does not follow
-this rule, and `opkg update` on the router only sees the project whose
-directory is referenced in `/etc/opkg/customfeeds.conf`.
+The directory name matches the corresponding project repository name. An
+OpenWrt package directory has its own `Packages` index and signature; a
+source-only directory contains documentation only.
 
 ## Layout
 
@@ -17,20 +16,23 @@ directory is referenced in `/etc/opkg/customfeeds.conf`.
 | `wificalling-location-gateway/` | smthdagg/wificalling-location-gateway | publishing (Standard + Lite, aarch64 + x86_64) |
 | `luci-app-wificalling-gateway/` | smthdagg/luci-app-wificalling-gateway | reserved |
 | `wificalling-location-gateway-beta/` | *private repository* | withheld — will be published when the project goes public again |
-| `ALL-VideoDownload-Plus/` | smthdagg/ALL-VideoDownload-Plus | reserved |
-| `SalesCRM/` | smthdagg/SalesCRM | reserved |
-| `Investment-Ann-List/` | smthdagg/Investment-Ann-List | reserved |
-| `rsstt-app/` | smthdagg/rsstt-app | reserved |
-| `XShield/` | smthdagg/XShield | reserved |
-| `RSSTT-360News/` | smthdagg/RSSTT-360News | reserved |
+| `ALL-VideoDownload-Plus/` | smthdagg/ALL-VideoDownload-Plus | source-only; install from the repository README |
+| `SalesCRM/` | smthdagg/SalesCRM | source-only; install from the repository README |
+| `Investment-Ann-List/` | smthdagg/Investment-Ann-List | source-only; install from the repository README |
+| `rsstt-app/` | smthdagg/rsstt-app | source-only; install from the repository README |
+| `XShield/` | smthdagg/XShield | source-only; install from the repository README |
+| `RSSTT-360News/` | smthdagg/RSSTT-360News | source-only; install from the repository README |
 
 `wloc.pub` at the root is the signing public key (key ID
 `f7050198aa77cf15`, long-lived, does not change between releases).
 
-## Update procedure (per project — follow exactly)
+## OpenWrt package update procedure
 
-Work in a checkout of this repository's `gh-pages` branch. The index
-generator is `scripts/gen-feed-index.sh` on this repository's `main` branch.
+This procedure applies only to the Wi-Fi Calling and WLOC package directories.
+Do not copy source code or non-OpenWrt projects into this feed.
+
+Work in a checkout of this repository's `gh-pages` branch. The index generator
+is `scripts/gen-feed-index.sh` on this repository's `main` branch.
 
 1. Copy the project's new `.ipk` files into `<project>/` (and remove
    superseded versions of the same package).
@@ -49,7 +51,7 @@ generator is `scripts/gen-feed-index.sh` on this repository's `main` branch.
 
 ## Router configuration
 
-One `src/gz` line per project, URL = feed base + project directory:
+Use an `opkg` source line only for a project that publishes OpenWrt packages:
 
 ```sh
 src/gz wloc https://smthdagg.github.io/Smthdagg-Repo-feeds/wificalling-location-gateway
@@ -63,8 +65,13 @@ wget -O /etc/opkg/keys/f7050198aa77cf15 \
 ```
 
 OpenWrt 25.x uses the APK format: download the `.apk` asset from the
-project's GitHub Release and `apk add --allow-untrusted` (the apk channel is
+project’s GitHub Release and `apk add --allow-untrusted` (the apk channel is
 not separately signed).
+
+Do not add source-only projects such as `ALL-VideoDownload-Plus`, `SalesCRM`,
+`Investment-Ann-List`, `rsstt-app`, `XShield`, or `RSSTT-360News` to
+`customfeeds.conf`. Install those projects from their private GitHub
+repository using the installation instructions in that project's README.
 
 ## Repository rename note
 

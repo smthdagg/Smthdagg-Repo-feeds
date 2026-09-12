@@ -1,6 +1,13 @@
 # XShield
 
-Reserved feed directory for this project. No OpenWrt packages published yet.
-When the project produces .ipk/.apk packages, copy them here and follow the
-update procedure in the root README (generate the index, sign, log in
-UPDATES.md, run scripts/feed-verify.sh).
+This is a source-only placeholder in the private distribution repository. It
+is not an OpenWrt package and must not be installed with `opkg` or `apk`.
+
+Clone the private project repository with Git over SSH:
+
+```sh
+git clone git@github.com:smthdagg/XShield.git
+cd XShield
+```
+
+Follow that repository's README for its actual runtime and deployment steps.

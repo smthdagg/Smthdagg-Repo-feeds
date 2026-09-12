@@ -1,6 +1,14 @@
 # ALL-VideoDownload-Plus
 
-Reserved feed directory for this project. No OpenWrt packages published yet.
-When the project produces .ipk/.apk packages, copy them here and follow the
-update procedure in the root README (generate the index, sign, log in
-UPDATES.md, run scripts/feed-verify.sh).
+This is a source-only placeholder in the private distribution repository. It
+is **not an OpenWrt package** and has no `opkg`/`apk` feed here.
+
+Install the project from its private GitHub repository:
+
+```sh
+git clone git@github.com:smthdagg/ALL-VideoDownload-Plus.git
+cd ALL-VideoDownload-Plus
+```
+
+Then follow the repository README for the local Docker or VPS Docker
+deployment. Do not add this directory to `/etc/opkg/customfeeds.conf`.
