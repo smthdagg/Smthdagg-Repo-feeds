@@ -52,6 +52,27 @@ The package preserves compatible UCI configuration as an OpenWrt conffile.
 After installation, verify the standalone service, LuCI status, provider
 health, redirect scope, and rollback path before enabling interception.
 
+## Standalone Wi-Fi Calling Gateway feed
+
+The separate `luci-app-wificalling-gateway` package is published under
+`luci-app-wificalling-gateway/` and is independent of the WLOC package above.
+For OpenWrt / ImmortalWrt / iStoreOS 24.10, add this source and install the
+architecture-independent package:
+
+```sh
+echo "src/gz luci-app-wificalling-gateway https://smthdagg.github.io/Smthdagg-Repo-feeds/luci-app-wificalling-gateway" \
+  >> /etc/opkg/customfeeds.conf
+opkg update
+opkg install luci-app-wificalling-gateway
+```
+
+Release `1.9.8` includes:
+
+- `luci-app-wificalling-gateway_1.9.8-1_all.ipk` for 24.10;
+- `18.06/luci-app-wificalling-gateway_1.9.8-1_18.06_all.ipk` for 18.06/Lede;
+- `luci-app-wificalling-gateway_1.9.8-r1_noarch.apk` for 25.x;
+- `Packages`, `Packages.gz`, and `SHA256SUMS` for verification.
+
 ## Verification and rollback
 
 Each release includes `SHA256SUMS`, `Packages`, and signed `Packages`/
@@ -60,5 +81,5 @@ keep the previous architecture-matching package for rollback. To roll back,
 withdraw WLOC interception first, restore the previous package and UCI
 backup, then confirm the separate provider remains untouched.
 
-The feed does not contain the separate Wi-Fi Calling Gateway package and does
-not require that project at install or runtime.
+The WLOC and Wi-Fi Calling Gateway packages remain separate products and do
+not require each other at install or runtime.
