@@ -8,6 +8,7 @@ integrity) by `scripts/feed-verify.sh` or an equivalent manual check.
 
 | Date (UTC) | Project | Version | Action | Verified |
 |---|---|---|---|---|
+| 2026-09-15 | wificalling-location-gateway | 1.3.0-r16 | compliant release: audit hardening (fail-open route lifecycle, daemon control-plane worker thread, LuCI/build fixes, rustls 0.23.45); six assets, signed index | ✅ |
 | 2026-09-14 | wificalling-location-gateway | 1.3.0-r15 | compliant release: shadowsocks node support (PR #102); six assets, signed index | ✅ |
 | 2026-09-14 | wificalling-location-gateway | (withdrawal) | v1.3.0-r14 marked prerelease and withdrawn from the feed (unmerged PR #98, IPv6-coexistence reversal not adopted); index restored to the compliant v1.3.0-r13 packages | ✅ feed-verify |
 | 2026-08-30 | (repository) | — | renamed to `Smthdagg-Repo-feeds`; restructured to per-project directories (`wificalling-location-gateway/` holds the packages, 8 project dirs reserved); added `scripts/feed-verify.sh`; router feed URL migrated to the `wificalling-location-gateway/` subdirectory | ✅ feed-verify |
