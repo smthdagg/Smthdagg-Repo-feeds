@@ -8,7 +8,7 @@ integrity) by `scripts/feed-verify.sh` or an equivalent manual check.
 
 | Date (UTC) | Project | Version | Action | Verified |
 |---|---|---|---|---|
-| 2026-09-20 | wificalling-location-gateway | 1.4.0-r17 | compliant release: WLOC/WFC decoupling (manual WLOC independent of the gateway, auto mode read-only exit follow), control-plane starvation fix, WFC device IPv6 through the tunnel + WLOC IPv6 guard fix, per-channel tunnel status in the monitor, carrier line-compatibility notes from live AX6S testing; standard + lite, x86_64 + aarch64 (apk for 25.x on the GitHub release), signed index | ✅ |
+| 2026-09-20 | wificalling-location-gateway | 1.4.0-r1 | compliant release: WLOC/WFC decoupling (manual WLOC independent of the gateway, auto mode read-only exit follow), control-plane starvation fix, WFC device IPv6 through the tunnel + WLOC IPv6 guard fix, per-channel tunnel status in the monitor, carrier line-compatibility notes from live AX6S testing; standard + lite, x86_64 + aarch64 (apk for 25.x on the GitHub release), signed index | ✅ |
 | 2026-09-15 | wificalling-location-gateway | 1.3.0-r16 | compliant release: audit hardening (fail-open route lifecycle, daemon control-plane worker thread, LuCI/build fixes, rustls 0.23.45); six assets, signed index | ✅ |
 | 2026-09-14 | wificalling-location-gateway | 1.3.0-r15 | compliant release: shadowsocks node support (PR #102); six assets, signed index | ✅ |
 | 2026-09-14 | wificalling-location-gateway | (withdrawal) | v1.3.0-r14 marked prerelease and withdrawn from the feed (unmerged PR #98, IPv6-coexistence reversal not adopted); index restored to the compliant v1.3.0-r13 packages | ✅ feed-verify |
