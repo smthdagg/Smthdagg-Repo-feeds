@@ -1,26 +1,42 @@
 # luci-app-wificalling-gateway
 
+Standalone Wi-Fi Calling Gateway 1.10.0 private feed (architecture-independent
+packages).  With 1.10.0 this feed is live: packages, opkg index and usign
+signatures are published here.
+
 ## 中文
 
-这是独立 Wi-Fi Calling LuCI 项目的私有源预留目录。目前这里尚未发布
-`.ipk` 或 `.apk` 包，因此不能从本目录执行 `opkg install` 或 `apk add`。
+导入签名公钥（长生命周期，各版本通用），添加源并安装：
 
-当前安装方式：请从项目 GitHub Releases 下载对应版本，按照项目仓库中的
-安装说明安装。该插件也已包含在已发布的
-`wificalling-location-gateway` 整合包中。
+```sh
+wget -O /etc/opkg/keys/f7050198aa77cf15 \
+  https://raw.githubusercontent.com/smthdagg/Smthdagg-Repo-feeds/gh-pages/wloc.pub
+echo "src/gz luci-app-wificalling-gateway https://smthdagg.github.io/Smthdagg-Repo-feeds/luci-app-wificalling-gateway" \
+  >> /etc/opkg/customfeeds.conf
+opkg update
+opkg install luci-app-wificalling-gateway
+```
 
-私有源目录只有在实际发布包、生成 `Packages` 索引并完成签名后，才会增加
-可执行的私有源安装命令。
+本目录包含：
+
+- `luci-app-wificalling-gateway_1.10.0-1_all.ipk`（24.10 / iStoreOS 等 opkg 平台）；
+- `18.06/luci-app-wificalling-gateway_1.10.0-1_18.06_all.ipk`（18.06/Lede，无 LuCI 菜单注册，用 UCI 配置）；
+- `luci-app-wificalling-gateway_1.10.0-r1_noarch.apk`（25.x，`apk add --allow-untrusted` 直接安装）；
+- `Packages` / `Packages.gz` 及其 `Packages.sig` 签名，`SHA256SUMS` 供校验。
 
 ## English
 
-This is the reserved private-feed directory for the standalone Wi-Fi Calling
-LuCI project. No `.ipk` or `.apk` package is published here yet, so do not run
-`opkg install` or `apk add` against this directory.
+Import the signing key once, add the source, and install:
 
-For now, download the matching release asset from the project's GitHub Releases
-page and follow the installation guide in that repository. The plugin is also
-included in the published `wificalling-location-gateway` integrated package.
+```sh
+wget -O /etc/opkg/keys/f7050198aa77cf15 \
+  https://raw.githubusercontent.com/smthdagg/Smthdagg-Repo-feeds/gh-pages/wloc.pub
+echo "src/gz luci-app-wificalling-gateway https://smthdagg.github.io/Smthdagg-Repo-feeds/luci-app-wificalling-gateway" \
+  >> /etc/opkg/customfeeds.conf
+opkg update
+opkg install luci-app-wificalling-gateway
+```
 
-This directory will receive usable private-feed commands only after packages
-are published, indexed in `Packages`, and signed.
+Contents: the 1.10.0 architecture-independent packages (24.10 ipk, 18.06 ipk
+without the LuCI menu registration, 25.x noarch apk), the signed
+`Packages`/`Packages.gz` opkg index, and `SHA256SUMS` for verification.
