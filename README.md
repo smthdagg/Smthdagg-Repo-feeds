@@ -66,11 +66,11 @@ opkg update
 opkg install luci-app-wificalling-gateway
 ```
 
-Release `1.9.8` includes:
+Release `1.10.0` includes:
 
-- `luci-app-wificalling-gateway_1.9.8-1_all.ipk` for 24.10;
-- `18.06/luci-app-wificalling-gateway_1.9.8-1_18.06_all.ipk` for 18.06/Lede;
-- `luci-app-wificalling-gateway_1.9.8-r1_noarch.apk` for 25.x;
+- `luci-app-wificalling-gateway_1.10.0-1_all.ipk` for 24.10;
+- `18.06/luci-app-wificalling-gateway_1.10.0-1_18.06_all.ipk` for 18.06/Lede;
+- `luci-app-wificalling-gateway_1.10.0-r1_noarch.apk` for 25.x;
 - `Packages`, `Packages.gz`, and `SHA256SUMS` for verification.
 
 ## Verification and rollback
