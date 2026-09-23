@@ -3,6 +3,6 @@ Version: 1.10.0-1
 Depends: luci-base, sing-box, curl, nftables, kmod-nft-tproxy, kmod-nft-socket, ip-full
 Architecture: all
 Filename: luci-app-wificalling-gateway_1.10.0-1_all.ipk
-Size: 40807
-SHA256sum: 027a23cd189be0972a312f173ac5d0fa1556b2d7a4901b04aff3ed7a8a42f3de
+Size: 40810
+SHA256sum: 97bbb3ebeeaf00fe7ebc342eaf59756b13114a5da3a0ea9c1d5d82e6c4147e2e
 Description: Per-device transparent Wi-Fi Calling gateway and ePDG/IPsec evidence monitor.
